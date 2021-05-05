@@ -33,7 +33,7 @@ export default function ExampleUI({yourDepositedBalance, address, mainnetProvide
               type="primary"
               icon={<DownloadOutlined />}
               onClick={()=>{
-                tx( writeContracts.ExfilStaking.deposit({
+                tx( writeContracts.YourContract.deposit({
                   value: parseEther(depositValue)
                 }))
               }}>Deposit</Button>
@@ -43,7 +43,7 @@ export default function ExampleUI({yourDepositedBalance, address, mainnetProvide
               danger="true"
               icon={<UploadOutlined />}
               onClick={()=>{
-                tx( writeContracts.ExfilStaking.withdraw() )
+                tx( writeContracts.YourContract.withdraw() )
               }}>Withdraw</Button>
             </div>
           </div>

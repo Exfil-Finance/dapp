@@ -79,12 +79,13 @@ function App(props) {
   // If you want to make 🔐 write transactions to your contracts, use the userProvider:
   const writeContracts = useContractLoader(userProvider)
 
-  //const contractAddress = readContracts["YourContract"].address
-  //console.log(readContracts);
+  //const contractAddress = readContracts.YourContract.address
+  console.log(readContracts);
 
   // Keep track of a variable from the contract in the local React state:
   //const totalPooledBalance =
-  const yourDepositedBalance = 1// useContractReader(readContracts, "YourContract", "balance", localProvider, 1)
+  const yourDepositedBalance = useContractReader(readContracts, "YourContract", "balance")
+  console.log(yourDepositedBalance);
 
   //📟 Listen for broadcast events
   //const depositEvents = useEventListener(readContracts, "YourContract", "Deposit", localProvider, 1);
