@@ -15,6 +15,10 @@ contract YourContract {
 
     receive() external payable { deposit(); }
 
+    function balanceOfPool() public returns(uint256) {
+      return address(this).balance;
+    }
+
     function deposit() public payable {
       balance[msg.sender] += msg.value;
       emit Deposit(msg.sender, msg.value);
