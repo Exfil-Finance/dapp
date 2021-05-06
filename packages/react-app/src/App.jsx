@@ -82,8 +82,7 @@ function App(props) {
   const totalPooledBalance = useBalance(localProvider, readContracts && readContracts.YourContract.address);
 
   // Keep track of your deposited balance in the pool:
-  const yourDepositedBalance = useContractReader(readContracts, "YourContract", "balance")
-  //console.log(yourDepositedBalance);
+  const yourPooledBalance = useContractReader(readContracts, "YourContract", "balance", [ address ])
 
   //📟 Listen for broadcast events
   //const depositEvents = useEventListener(readContracts, "YourContract", "Deposit", localProvider, 1);
@@ -230,7 +229,7 @@ function App(props) {
               tx={tx}
               writeContracts={writeContracts}
               readContracts={readContracts}
-              yourDepositedBalance={yourDepositedBalance}
+              yourPooledBalance={yourPooledBalance}
               totalPooledBalance={totalPooledBalance}
             />
           </Route>
