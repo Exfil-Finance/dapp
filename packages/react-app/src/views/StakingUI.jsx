@@ -6,7 +6,7 @@ import { DownloadOutlined, UploadOutlined } from '@ant-design/icons';
 import { Address, Balance } from "../components";
 import { parseEther, formatEther } from "@ethersproject/units";
 
-export default function ExampleUI({yourDepositedBalance, address, mainnetProvider, userProvider, localProvider, yourLocalBalance, price, tx, readContracts, writeContracts }) {
+export default function ExampleUI({totalPooledBalance, yourDepositedBalance, address, mainnetProvider, userProvider, localProvider, yourLocalBalance, price, tx, readContracts, writeContracts }) {
 
   const [depositValue, setDepositValue] = useState(0);
 
@@ -15,13 +15,19 @@ export default function ExampleUI({yourDepositedBalance, address, mainnetProvide
       <div style={{border:"1px solid #cccccc", padding:16, width:400, margin:"auto",marginTop:64}}>
         <h1>🪂 Exfil Staking 🪂</h1>
 
-        <h4>Total Value Pooled: {yourDepositedBalance}</h4>
+        <h4>Total Value Pooled:</h4>
+        <Balance
+          balance={totalPooledBalance}
+          fontSize={64}
+        />
 
         <Divider/>
 
-        <h4>Your Pooled Balance: {yourDepositedBalance}</h4>
+        <div style={{justifyContent:"center"}}>
+          <h4 style={{margin:12}}>Your Balance: {yourDepositedBalance}</h4>
 
-        <h4>Your Pool Share: {yourDepositedBalance * 0.10} %</h4>
+          <h4 style={{margin:12}}>Your Pool Share: {1 * 0.10} %</h4>
+        </div>
 
         <Divider/>
 

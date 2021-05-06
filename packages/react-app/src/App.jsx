@@ -78,22 +78,16 @@ function App(props) {
   // If you want to make 🔐 write transactions to your contracts, use the userProvider:
   const writeContracts = useContractLoader(userProvider)
 
-  //const contractAddress = readContracts.YourContract.address
-  console.log(readContracts);
+  // Keep track of contract balance to know how much has been staked total:
+  const totalPooledBalance = useBalance(localProvider, readContracts && readContracts.YourContract.address);
 
-  // Keep track of a variable from the contract in the local React state:
-  //const totalPooledBalance =
+  // Keep track of your deposited balance in the pool:
   const yourDepositedBalance = useContractReader(readContracts, "YourContract", "balance")
-  console.log(yourDepositedBalance);
+  //console.log(yourDepositedBalance);
 
   //📟 Listen for broadcast events
   //const depositEvents = useEventListener(readContracts, "YourContract", "Deposit", localProvider, 1);
   //const withdrawEvents = useEventListener(readContracts, "YourContract", "Withdraw", localProvider, 1);
-
-  /*
-  const addressFromENS = useResolveName(mainnetProvider, "austingriffith.eth");
-  console.log("🏷 Resolved austingriffith.eth as:",addressFromENS)
-  */
 
   //
   // ☝️ These effects will log your major set up and upcoming transferEvents- and balance changes
@@ -237,6 +231,7 @@ function App(props) {
               writeContracts={writeContracts}
               readContracts={readContracts}
               yourDepositedBalance={yourDepositedBalance}
+              totalPooledBalance={totalPooledBalance}
             />
           </Route>
           <Route path="/contract">
