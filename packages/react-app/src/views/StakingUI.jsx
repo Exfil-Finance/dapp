@@ -31,6 +31,7 @@ export default function ExampleUI({yourDepositedBalance, address, mainnetProvide
             <div style={{margin:12}}>
               <Button
               type="primary"
+              ghost="true"
               icon={<DownloadOutlined />}
               onClick={()=>{
                 tx( writeContracts.YourContract.deposit({
