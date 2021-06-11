@@ -32,6 +32,9 @@ export default function ExampleUI({totalPooledBalance, yourPooledBalance, addres
           />Ξ
 
           <h4 style={{margin:12}}>Your Pool Share: {((yourPooledBalance / totalPooledBalance) * 100).toFixed(2)} %</h4>
+
+          <h4 style={{margin:12}}>Your Accrued Fees: {((yourPooledBalance / totalPooledBalance) * 100).toFixed(2) * 0.05} Ξ</h4>
+
         </div>
 
         <Divider/>
